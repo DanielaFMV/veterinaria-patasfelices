@@ -1,0 +1,14 @@
+  {% extends 'fichas/base.html' %}                                                                                      
+                                                                                                                        
+  {% block title %}Formulario Dueño{% endblock %}                                                                       
+                  
+  {% block content %}                                                                                                   
+  <h1>{% if object %}Editar Dueño{% else %}Nuevo Dueño{% endif %}</h1>
+
+  <form method="post">                                                                                                  
+      {% csrf_token %}
+      {{ form.as_p }}                                                                                                   
+      <button type="submit" class="btn btn-success">Guardar</button>
+      <a href="{% url 'fichas:dueno_lista' %}" class="btn btn-primary">Cancelar</a>
+  </form>                                                                                                               
+  {% endblock %}

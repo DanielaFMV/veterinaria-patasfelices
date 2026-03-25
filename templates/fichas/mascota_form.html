@@ -1,0 +1,14 @@
+  {% extends 'fichas/base.html' %}                                                                                      
+                                                                                                                        
+  {% block title %}Formulario Mascota{% endblock %}                                                                     
+                  
+  {% block content %}
+  <h1>{% if object %}Editar Mascota{% else %}Nueva Mascota{% endif %}</h1>
+                                                                                                                        
+  <form method="post">
+      {% csrf_token %}                                                                                                  
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-success">Guardar</button>
+      <a href="{% url 'fichas:mascota_lista' %}" class="btn btn-primary">Cancelar</a>
+  </form>                                                                                                               
+  {% endblock %}

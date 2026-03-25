@@ -1,0 +1,45 @@
+{% extends 'fichas/base.html' %}                                                                                      
+                                                                                                                        
+  {% block title %}Detalle de {{ mascota.nombre }}{% endblock %}                                                        
+                  
+  {% block content %}
+  <h1>{{ mascota.nombre }}</h1>
+                                                                                                                        
+  <table>
+      <tr><th>Especie</th><td>{{ mascota.especie }}</td></tr>                                                           
+      <tr><th>Raza</th><td>{{ mascota.raza }}</td></tr>
+      <tr><th>Fecha de nacimiento</th><td>{{ mascota.fecha_nacimiento|date:"d/m/y" }}</td></tr>                         
+      <tr><th>Dueño</th><td>{{ mascota.dueno.nombre }}</td></tr>
+  </table>                                                                                                              
+                  
+  <a href="{% url 'fichas:mascota_editar' mascota.pk %}" class="btn btn-warning">Editar</a>                             
+  <a href="{% url 'fichas:mascota_eliminar' mascota.pk %}" class="btn btn-danger">Eliminar</a>
+                                                                                                                        
+  <h2>Consultas médicas</h2>                                                                                            
+  {% if mascota.consultamedica_set.all %}
+  <table>                                                                                                               
+      <thead>     
+          <tr>
+              <th>Fecha</th>
+              <th>Motivo</th>                                                                                           
+              <th>Diagnóstico</th>
+              <th>Costo</th>                                                                                            
+          </tr>   
+      </thead>                                                                                                          
+      <tbody>
+          {% for consulta in mascota.consultamedica_set.all %}                                                          
+          <tr>    
+              <td>{{ consulta.fecha|date:"d/m/y" }}</td>
+              <td>{{ consulta.motivo }}</td>
+              <td>{{ consulta.diagnostico }}</td>                                                                       
+              <td>{{ consulta.costo_clp }}</td>
+          </tr>                                                                                                         
+          {% endfor %}                                                                                                  
+      </tbody>
+  </table>                                                                                                              
+  {% else %}      
+  <p>Esta mascota no tiene consultas registradas.</p>
+  {% endif %}
+
+  <a href="{% url 'fichas:mascota_lista' %}" class="btn btn-primary">Volver a la lista</a>                              
+  {% endblock %}

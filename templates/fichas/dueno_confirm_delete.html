@@ -1,0 +1,17 @@
+{% extends 'fichas/base.html' %}                                                                                      
+                                                                                                                        
+  {% block title %}Eliminar Dueño{% endblock %}                                                                         
+                  
+  {% block content %}                                                                                                   
+  <h1>Eliminar Dueño</h1>
+                                                                                                                        
+  <p>¿Estás segura de que deseas eliminar al dueño <strong>{{ object.nombre }}</strong>?</p>                            
+  <p>Esta acción también eliminará todas sus mascotas y consultas médicas asociadas.</p>
+                                                                                                                        
+  <form method="post">
+      {% csrf_token %}                                                                                                  
+      <button type="submit" class="btn btn-danger">Confirmar eliminación</button>
+      <a href="{% url 'fichas:dueno_lista' %}" class="btn btn-primary">Cancelar</a>                                     
+  </form>
+  {% endblock %}                                                                                                        
+                  

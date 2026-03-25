@@ -1,0 +1,19 @@
+# Entorno virtual                                                                                                     
+  veterinaria_env/                                                                                                      
+                                                                                                                        
+  # Variables de entorno (NUNCA subir)                                                                                  
+  .env                                                                                                                  
+                                                                                                                        
+  # Base de datos local
+  db.sqlite3
+
+  # Archivos de Python compilados                                                                                       
+  __pycache__/
+  *.pyc                                                                                                                 
+  *.pyo           
+
+  # VS Code
+  .vscode/
+
+  # macOS
+  .DS_Store

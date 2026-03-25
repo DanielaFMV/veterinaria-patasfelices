@@ -1,0 +1,16 @@
+  {% extends 'fichas/base.html' %}                                                                                      
+                                                                                                                        
+  {% block title %}Eliminar Mascota{% endblock %}                                                                       
+                                                                                                                        
+  {% block content %}
+  <h1>Eliminar Mascota</h1>
+
+  <p>¿Estás segura de que deseas eliminar a <strong>{{ object.nombre }}</strong>?</p>                                   
+  <p>Esta acción también eliminará todas sus consultas médicas asociadas.</p>
+                                                                                                                        
+  <form method="post">
+      {% csrf_token %}                                                                                                  
+      <button type="submit" class="btn btn-danger">Confirmar eliminación</button>
+      <a href="{% url 'fichas:mascota_lista' %}" class="btn btn-primary">Cancelar</a>                                   
+  </form>
+  {% endblock %}   
