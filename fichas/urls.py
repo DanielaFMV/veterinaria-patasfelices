@@ -4,6 +4,9 @@ from . import views
 app_name = 'fichas'
 
 urlpatterns = [
+    # Inicio
+    path('', views.InicioView.as_view(), name='inicio'),
+
     # Dueños
     path('duenos/', views.DuenoListView.as_view(), name='dueno_lista'),
     path('duenos/<int:pk>/', views.DuenoDetailView.as_view(), name='dueno_detalle'),

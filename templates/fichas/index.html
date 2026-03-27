@@ -1,0 +1,39 @@
+{% extends 'fichas/base.html' %}
+
+{% block title %}Inicio — PatasFelices{% endblock %}
+
+{% block content %}
+<div class="text-center py-5">
+    <h1 class="display-4 fw-bold">Bienvenida a PatasFelices 🐾</h1>
+    <p class="lead text-muted">Sistema de gestión de fichas veterinarias</p>
+    <hr class="my-4" style="border-color: #3aafa9;">
+</div>
+
+<div class="row g-4 justify-content-center">
+    <!-- Tarjeta Dueños -->
+    <div class="col-md-5">
+        <div class="card h-100 shadow-sm border-0" style="border-radius: 16px; background-color: #d4f1e4;">
+            <div class="card-body text-center p-5">
+                <div style="font-size: 3rem;">👤</div>
+                <h3 class="card-title mt-3" style="color: #2e8b6e;">Dueños</h3>
+                <p class="card-text text-muted">Registra y gestiona los dueños de las mascotas.</p>
+                <a href="{% url 'fichas:dueno_lista' %}" class="btn btn-success me-2">Ver Dueños</a>
+                <a href="{% url 'fichas:dueno_crear' %}" class="btn btn-outline-success">+ Nuevo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tarjeta Mascotas -->
+    <div class="col-md-5">
+        <div class="card h-100 shadow-sm border-0" style="border-radius: 16px; background-color: #cdeef7;">
+            <div class="card-body text-center p-5">
+                <div style="font-size: 3rem;">🐶</div>
+                <h3 class="card-title mt-3" style="color: #3aafa9;">Mascotas</h3>
+                <p class="card-text text-muted">Registra y gestiona las fichas de las mascotas.</p>
+                <a href="{% url 'fichas:mascota_lista' %}" class="btn btn-primary me-2">Ver Mascotas</a>
+                <a href="{% url 'fichas:mascota_crear' %}" class="btn btn-outline-primary">+ Nueva</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,8 +1,14 @@
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView                             
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView                             
 from django.urls import reverse_lazy                                                                                  
 from .models import Dueno, Mascota
                                                                                                                         
                                                                                                                         
+  # ── INICIO ───────────────────────────────────────────────
+
+class InicioView(TemplateView):
+      template_name = 'fichas/index.html'
+
+
   # ── DUEÑOS ──────────────────────────────────────────────
                                                                                                                         
 class DuenoListView(ListView):
