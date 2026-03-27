@@ -7,6 +7,9 @@
   # Base de datos local
   db.sqlite3
 
+  # Archivos estáticos de producción
+  staticfiles/
+
   # Archivos de Python compilados                                                                                       
   __pycache__/
   *.pyc                                                                                                                 
